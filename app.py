@@ -201,5 +201,11 @@ if st.button("🚀 Predict Category"):
             """,
             unsafe_allow_html=True
         )
+        st.balloons()
     else:
         st.warning("⚠ Please provide input text or file")
+        st.markdown("""
+<hr>
+<center style="color:gray;">Built with ❤️ using NLP & Streamlit</center>
+""", unsafe_allow_html=True)
+        
