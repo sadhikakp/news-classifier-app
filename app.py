@@ -2,14 +2,23 @@ import streamlit as st
 import re
 import pickle
 from nltk.corpus import stopwords
+import nltk
 import PyPDF2
 import time
+
+# Load stopwords safely
+try:
+    stop_words = set(stopwords.words('english'))
+except:
+    nltk.download('stopwords')
+    stop_words = set(stopwords.words('english'))
+
 
 # Load model and vectorizer
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
-stop_words = set(stopwords.words('english'))
+
 
 # Page config
 st.set_page_config(page_title="AI News Classifier", page_icon="📰", layout="centered")
